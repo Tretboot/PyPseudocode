@@ -129,3 +129,85 @@ definiere mandelbrot_pseudocode():
   # Erstelle eine Variable für die maximale Anzahl von Zeilen
   max_zeilen = int(eingabe("Wie viele Zeilen möchtest du generieren? "))
   
+# Erstelle ein tkinter-Fenster
+fenster = tkinter.Tk()
+# Setze den Fenstertitel
+fenster.title("PyPseudocode")
+# Setze die Fenstergröße
+fenster.geometry("800x600")
+
+# Erstelle eine Textbox, um den Pseudocode anzuzeigen
+text = tkinter.Text(fenster)
+# Setze die Textbox-Größe
+text.pack(expand=True, fill="both")
+# Setze die Textbox-Schriftart
+text.config(font=("Courier", 12))
+
+# Definiere eine Funktion, die den Pseudocode in der Textbox kopiert
+definiere kopiere_code():
+  # Hole den gesamten Text aus der Textbox
+  code = text.get("1.0", "end")
+  # Kopiere den Text in die Zwischenablage
+  fenster.clipboard_clear()
+  fenster.clipboard_append(code)
+
+# Definiere eine Funktion, die neuen Pseudocode in der Textbox generiert
+definiere generiere_code():
+  # Lösche den alten Text aus der Textbox
+  text.delete("1.0", "end")
+  # Setze eine Variable für die Anzahl der Zeilen
+  zeilen = 10
+  # Setze eine Variable für die Einrückungsebene
+  ebene = 0
+  # Wiederhole für jede Zeile
+  für i von 0 bis zeilen:
+    # Generiere einen zufälligen Befehl
+    befehl = zufalls_befehl()
+    # Füge Leerzeichen entsprechend der Einrückungsebene hinzu
+    befehl = " " * (ebene * 4) + befehl
+    # Füge den Befehl in die Textbox ein
+    text.insert("end", befehl + "\n")
+    # Wenn der Befehl eine Schleife ist, erhöhe die Einrückungsebene um 1
+    wenn befehl.startswith("für") oder befehl.startswith("solange"):
+      ebene = ebene + 1
+    # Wenn die Einrückungsebene größer als 0 ist, verringere sie zufällig um 1 mit einer Wahrscheinlichkeit von 0.5
+    wenn ebene > 0 und random.random() < 0.5:
+      ebene = ebene - 1
+
+# Definiere eine Funktion, die den Pseudocode in der Textbox degeneriert
+definiere degeneriere_code():
+  # Hole den gesamten Text aus der Textbox
+  code = text.get("1.0", "end")
+  # Ersetze alle Buchstaben durch zufällige Zeichen aus dem Mandelbrot Fraktalset
+  zeichen = [" ", ".", ",", "-", "+", "*", "/", "%", "^", "(", ")", "[", "]", "{", "}"]
+  neuer_code = ""
+  für c in code:
+    wenn c.isalpha():
+      neuer_code = neuer_code + random.choice(zeichen)
+    sonst:
+      neuer_code = neuer_code + c
+  # Lösche den alten Text aus der Textbox
+  text.delete("1.0", "end")
+  # Füge den neuen Text in die Textbox ein
+  text.insert("1.0", neuer_code)
+
+# Erstelle einen Button, um den Pseudocode zu kopieren
+kopieren = tkinter.Button(fenster, text="Copy Code", command=kopiere_code)
+# Setze den Button unten links im Fenster
+kopieren.pack(side="left")
+
+# Erstelle einen Button, um neuen Pseudocode zu generieren
+generieren = tkinter.Button(fenster, text="Regenerate", command=generiere_code)
+# Setze den Button unten in der Mitte im Fenster
+generieren.pack(side="left")
+
+# Erstelle einen Button, um den Pseudocode zu degenerieren
+degenerieren = tkinter.Button(fenster, text="Degenerate", command=degeneriere_code)
+# Setze den Button unten rechts im Fenster
+degenerieren.pack(side="left")
+
+# Generiere initialen Pseudocode in der Textbox
+generiere_code()
+
+# Starte die tkinter-Hauptschleife
+fenster.mainloop()
