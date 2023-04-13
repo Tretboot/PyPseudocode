@@ -7,13 +7,13 @@
 # Importiere die benötigten Module
 import random
 import tkinter
-import math
+
 
 # Definiere eine Funktion, die einen zufälligen Pseudocode-Befehl zurückgibt
 def zufalls_befehl():
   # Wähle eine zufällige Zahl zwischen 1 und 10 aus
   zahl = random.randint(1, 10)
-  # if die Zahl 1 ist, gib eine Zuweisung zurück
+  # Falls die Zahl 1 ist, gib eine Zuweisung zurück
   if zahl == 1:
     # Wähle einen zufälligen Variablennamen aus
     name = random.choice(["x", "y", "z", "a", "b", "c"])
@@ -21,11 +21,11 @@ def zufalls_befehl():
     wert = random.choice([0, 1, 2, 3, "wahr", "falsch", "nichts"])
     # Gib die Zuweisung zurück
     return name + " = " + str(wert)
-  # if die Zahl 2 ist, gib eine Schleife zurück
+  # Wenn die Zahl 2 ist, gib eine Schleife zurück
   if zahl == 2:
     # Wähle einen zufälligen Schleifentyp aus
     typ = random.choice(["for", "solange"])
-    # if der Typ for ist, gib eine for-Schleife zurück
+    # Sollte der Typ for sein, gib eine for-Schleife zurück
     if typ == "for":
       # Wähle einen zufälligen Variablennamen aus
       name = random.choice(["i", "j", "k", "n", "m"])
@@ -35,19 +35,19 @@ def zufalls_befehl():
       ende = random.randint(start + 1, start + 10)
       # Gib die for-Schleife zurück
       return "for " + name + " von " + str(start) + " bis " + str(ende) + ":"
-    # if der Typ solange ist, gib eine solange-Schleife zurück
+    # Wenn der Typ solange ist, gib eine solange-Schleife zurück
     if typ == "solange":
       # Wähle eine zufällige Bedingung aus
       bedingung = random.choice(["x < y", "y > z", "z == a", "a != b", "b < c", "c > x"])
       # Gib die solange-Schleife zurück
       return "solange " + bedingung + ":"
-  # if die Zahl 3 ist, gib eine Bedingung zurück
+  # Wenn die Zahl 3 ist, gib eine Bedingung zurück
   if zahl == 3:
     # Wähle eine zufällige Bedingung aus
     bedingung = random.choice(["x < y", "y > z", "z == a", "a != b", "b < c", "c > x"])
     # Gib die Bedingung zurück
     return "if " + bedingung + ":"
-  # if die Zahl 4 ist, gib eine Funktion zurück
+  # Wenn die Zahl 4 ist, gib eine Funktion zurück
   if zahl == 4:
     # Wähle einen zufälligen Funktionsnamen aus
     name = random.choice(["funktion1", "funktion2", "funktion3", "funktion4"])
@@ -67,13 +67,13 @@ def zufalls_befehl():
     anzahl = random.randint(1, 10)
     # Gib die Schleife zurück
     return "for " + name + " in range(" + str(anzahl) + "):"
-  # if die Zahl 3 ist, gib eine Bedingung zurück
+  # Wenn die Zahl 3 ist, gib eine Bedingung zurück
   if zahl == 3:
     # Wähle einen zufälligen Ausdruck aus
     ausdruck = random.choice(["x > y", "y < z", "z == a", "a != b", "b und c", "c oder x"])
     # Gib die Bedingung zurück
     return "if " + ausdruck + ":"
-  # if die Zahl 4 ist, gib eine Funktion zurück
+  # Wenn die Zahl 4 ist, gib eine Funktion zurück
   if zahl == 4:
     # Wähle einen zufälligen Funktionsnamen aus
     name = random.choice(["funktion1", "funktion2", "funktion3", "funktion4", "funktion5"])
@@ -86,7 +86,7 @@ def zufalls_befehl():
       parameter.append(random.choice(["p", "q", "r", "s", "t"]))
     # Gib die Funktion zurück
     return "definiere " + name + "(" + ", ".join(parameter) + "):"
-  # if die Zahl 5 ist, gib einen Funktionsaufruf zurück
+  # Wenn die Zahl 5 ist, gib einen Funktionsaufruf zurück
   if zahl == 5:
     # Wähle einen zufälligen Funktionsnamen aus
     name = random.choice(["funktion1", "funktion2", "funktion3", "funktion4", "funktion5"])
@@ -99,23 +99,23 @@ def zufalls_befehl():
       argumente.append(random.choice([0, 1, 2, 3, "wahr", "falsch", "nichts"]))
     # Gib den Funktionsaufruf zurück
     return name + "(" + ", ".join(str(arg) for arg in argumente) + ")"
-  # if die Zahl 6 ist, gib einen Kommentar zurück
+  # Wenn die Zahl 6 ist, gib einen Kommentar zurück
   if zahl == 6:
     # Gib den Kommentar zurück
     return "# Ich habe keine Ahnung, was diese Funktion macht"
-  # if die Zahl 7 ist, gib eine leere Zeile zurück
+  # Wenn die Zahl 7 ist, gib eine leere Zeile zurück
   if zahl == 7:
     # Gib die leere Zeile zurück
     return ""
-  # if die Zahl 8 ist, gib eine Einrückung zurück
+  # Wenn die Zahl 8 ist, gib eine Einrückung zurück
   if zahl == 8:
     # Gib die Einrückung zurück
     return "\t"
-  # if die Zahl 9 ist, gib eine Ausrückung zurück
+  # Wenn die Zahl 9 ist, gib eine Ausrückung zurück
   if zahl == 9:
     # Gib die Ausrückung zurück
     return "\b"
-  # if die Zahl 10 ist, gib eine Rückkehr zurück
+  # Wenn die Zahl 10 ist, gib eine Rückkehr zurück
   if zahl == 10:
     # Gib die Rückkehr zurück
     return "\n"
@@ -156,9 +156,9 @@ def generiere_code():
   # Lösche den alten Text aus der Textbox
   text.delete("1.0", "end")
   # Setze eine Variable for die Anzahl der Zeilen
-  zeilen = 10
+  zeilen = 20
   # Setze eine Variable for die Einrückungsebene
-  ebene = 0
+  ebene = 1
   # Wiederhole für jede Zeile
   for i in  range (zeilen):
     # Generiere einen zufälligen Befehl
@@ -167,10 +167,10 @@ def generiere_code():
     befehl = " " * (ebene * 4) + befehl
     # Füge den Befehl in die Textbox ein
     text.insert("end", befehl + "\n")
-    # if der Befehl eine Schleife ist, erhöhe die Einrückungsebene um 1
+    # Wenn der Befehl eine Schleife ist, erhöhe die Einrückungsebene um 1
     if befehl.startswith("for") or befehl.startswith("solange"):
       ebene = ebene + 1
-    # if die Einrückungsebene größer als 0 ist, verringere sie zufällig um 1 mit einer Wahrscheinlichkeit von 0.5
+    # Wenn die Einrückungsebene größer als 0 ist, verringere sie zufällig um 1 mit einer Wahrscheinlichkeit von 0.5
     if ebene > 0 and random.random() < 0.5:
       ebene = ebene - 1
 
