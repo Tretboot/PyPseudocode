@@ -159,8 +159,8 @@ def generiere_code():
   zeilen = 10
   # Setze eine Variable for die Einrückungsebene
   ebene = 0
-  # Wiederhole for jede Zeile
-  for i in  range zeilen:
+  # Wiederhole für jede Zeile
+  for i in  range (zeilen):
     # Generiere einen zufälligen Befehl
     befehl = zufalls_befehl()
     # Füge Leerzeichen entsprechend der Einrückungsebene hinzu
