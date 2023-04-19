@@ -3,10 +3,8 @@
 
 PyPseudocode ist ein kleines Programm, das zufälligen Pseudocode generiert
 
-an Ai generated Programm that generates pseudocode
-licensed under The Unlicense
 
-#Screenshots
+# Screenshots
 
 ![image](https://user-images.githubusercontent.com/37165913/233214191-554f318b-7bc9-4cb5-9dd4-dc9d89b5003b.png)
 
